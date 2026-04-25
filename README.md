@@ -45,6 +45,25 @@ Built with the vision of **"Made for India"**, GenVeda natively supports local l
 - **Voice-Assisted Clinical Notes:** Built-in browser-native speech-to-text allows nurses and doctors to dictate prescriptions and notes in English or Kannada effortlessly.
 
 ---
+<img width="1536" height="1024" alt="WhatsApp Image 2026-04-25 at 10 50 34 AM" src="https://github.com/user-attachments/assets/06bd2c2b-11c7-4e20-a24e-f1c09c9ce9dd" />
+<img width="1536" height="1024" alt="WhatsApp Image 2026-04-25 at 10 50 34 AM" src="https://github.com/user-attachments/assets/6d113a98-1a15-47d0-bd22-35de72edca39" />
+<img width="1523" height="1600" alt="WhatsApp Image 2026-04-25 at 10 50 34 AM (2)" src="https://github.com/user-attachments/assets/ad41b756-a578-46a2-b666-725f83ec21ff" />
+<img width="1523" height="1600" alt="WhatsApp Image 2026-04-25 at 10 50 34 AM (2)" src="https://github.com/user-attachments/assets/9a3f5900-9df5-45ad-ab7f-09d12b7b8fac" />
+<img width="1600" height="571" alt="WhatsApp Image 2026-04-25 at 10 50 35 AM" src="https://github.com/user-attachments/assets/505f5b6e-3339-41c4-90b7-d8032b6a5082" />
+<img width="1536" height="1024" alt="WhatsApp Image 2026-04-25 at 10 50 35 AM (1)" src="https://github.com/user-attachments/assets/e1c58688-f82c-41d2-9574-e17de1bf688f" />
+<img width="1536" height="1024" alt="WhatsApp Image 2026-04-25 at 10 50 35 AM (3)" src="https://github.com/user-attachments/assets/3d14655b-096a-45a7-a2f0-ff08c104c49d" />
+<img width="1536" height="1024" alt="WhatsApp Image 2026-04-25 at 10 50 35 AM (3)" src="https://github.com/user-attachments/assets/554da08e-ef3f-40aa-a487-236ea1355b8d" />
+<img width="1600" height="899" alt="WhatsApp Image 2026-04-25 at 10 52 18 AM" src="https://github.com/user-attachments/assets/b8eeea0a-7587-4d51-bd31-8e5aaa5a0554" />
+
+
+
+
+
+
+
+
+
+
 
 ## 🏗 System Architecture
 
