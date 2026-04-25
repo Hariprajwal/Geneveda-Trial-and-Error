@@ -26,9 +26,11 @@ AVAILABLE_MODELS = [
 ]
 
 OPENROUTER_MODELS = [
-    "meta-llama/llama-3.1-8b-instruct:free",
+    # Heavy, highly-capable multilingual models prioritized for Kannada
+    "meta-llama/llama-3.3-70b-instruct:free",
+    "qwen/qwen-2.5-72b-instruct:free",
     "google/gemma-3-12b-it:free",
-    "mistralai/mistral-7b-instruct:free"
+    "meta-llama/llama-3.1-8b-instruct:free"
 ]
 
 SYSTEM_PROMPT = """You are GenVeda AI, a friendly and knowledgeable dermatology health assistant.
@@ -81,7 +83,7 @@ def crawl_duckduckgo(query: str) -> str:
 
         return " | ".join(parts) if parts else ""
     except Exception as e:
-        print(f"[RAG-DDG] Error: {e}")
+        print("[RAG-DDG] Error occurred during crawl")
         return ""
 
 
@@ -118,7 +120,7 @@ def crawl_pubmed(query: str) -> str:
         # Trim to first 500 chars to keep context concise
         return fetch_r.text[:500].strip() if fetch_r.text else ""
     except Exception as e:
-        print(f"[RAG-PubMed] Error: {e}")
+        print("[RAG-PubMed] Error occurred during crawl")
         return ""
 
 
@@ -138,7 +140,7 @@ def crawl_wikipedia(query: str) -> str:
                     return extract[:450]
         return ""
     except Exception as e:
-        print(f"[RAG-Wiki] Error: {e}")
+        print("[RAG-Wiki] Error occurred during crawl")
         return ""
 
 
@@ -222,7 +224,7 @@ def call_llm(messages: list, model: str) -> str:
             "max_tokens": 450,
             "temperature": 0.7,
         },
-        timeout=25,
+        timeout=60, # Increased timeout to 60s because Kannada generates more tokens and takes longer
     )
 
     if r.status_code != 200:
@@ -259,22 +261,31 @@ def get_llm_response(user_message: str, context: str, history: list) -> str:
     # Current user message
     messages.append({"role": "user", "content": user_message})
 
+    import re
+    # Kannada Unicode block: \u0C80-\u0CFF
+    is_kannada = bool(re.search(r'[\u0C80-\u0CFF]', user_message))
+
     errors = []
-    all_models = AVAILABLE_MODELS + OPENROUTER_MODELS
+    # Prioritize OpenRouter's heavy multilingual models over Cerebras if Kannada is detected
+    if is_kannada:
+        all_models = OPENROUTER_MODELS + AVAILABLE_MODELS
+    else:
+        all_models = AVAILABLE_MODELS + OPENROUTER_MODELS
+
     for model in all_models:
         try:
             print(f"[RAG-LLM] Trying: {model}")
             reply = call_llm(messages, model)
-            print(f"[RAG-LLM] OK with {model}: {reply[:60]}...")
+            print(f"[RAG-LLM] OK with {model}: [Response hidden to prevent Unicode console crash]")
             return reply
         except Exception as e:
             err_msg = f"{model}: {str(e)[:120]}"
-            print(f"[RAG-LLM] FAIL {err_msg}")
+            print(f"[RAG-LLM] FAIL {model} - [Error hidden to prevent Unicode console crash]")
             errors.append(err_msg)
             continue
 
     # All models failed — log details for debugging
-    print(f"[RAG-LLM] ALL models failed. Errors:\n" + "\n".join(errors))
+    print("[RAG-LLM] ALL models failed. Check errors.")
     return (
         "I'm having trouble reaching the AI service right now. "
         "Please try again in a moment, or consult your healthcare provider directly. "
@@ -310,7 +321,7 @@ class RAGChatView(APIView):
         if should_crawl:
             # Extract key medical terms from the message for better crawl targeting
             crawl_query = user_message[:80]  # Keep it short for API calls
-            print(f"[RAG] Crawling for: {crawl_query}")
+            print("[RAG] Crawling for query... [Query hidden to prevent Unicode console crash]")
             context = build_medical_context(crawl_query)
             print(f"[RAG] Context length: {len(context)} chars")
 
