@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GenVeda — Clinical Intelligence</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+      /* ─── ALL colors point to CSS variables so dark-mode auto-works ─── */
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary":                    "var(--c-primary)",
+              "on-primary":                 "var(--c-on-primary)",
+              "primary-container":          "var(--c-primary-container)",
+              "on-primary-container":       "var(--c-on-primary-container)",
+              "secondary":                  "var(--c-secondary)",
+              "on-secondary":               "var(--c-on-secondary)",
+              "secondary-container":        "var(--c-secondary-container)",
+              "on-secondary-container":     "var(--c-on-secondary-container)",
+              "tertiary":                   "var(--c-tertiary)",
+              "tertiary-container":         "var(--c-tertiary-container)",
+              "tertiary-fixed":             "var(--c-tertiary-fixed)",
+              "on-tertiary-container":      "var(--c-on-tertiary-container)",
+              "error":                      "var(--c-error)",
+              "on-error":                   "var(--c-on-error)",
+              "error-container":            "var(--c-error-container)",
+              "on-error-container":         "var(--c-on-error-container)",
+              "background":                 "var(--c-background)",
+              "on-background":              "var(--c-on-background)",
+              "surface":                    "var(--c-surface)",
+              "on-surface":                 "var(--c-on-surface)",
+              "surface-variant":            "var(--c-surface-variant)",
+              "on-surface-variant":         "var(--c-on-surface-variant)",
+              "surface-container-lowest":   "var(--c-surface-container-lowest)",
+              "surface-container-low":      "var(--c-surface-container-low)",
+              "surface-container":          "var(--c-surface-container)",
+              "surface-container-high":     "var(--c-surface-container-high)",
+              "surface-container-highest":  "var(--c-surface-container-highest)",
+              "outline":                    "var(--c-outline)",
+              "outline-variant":            "var(--c-outline-variant)",
+            },
+            fontFamily: {
+              headline: ["Lexend"],
+              display:  ["Lexend"],
+              body:     ["Lexend"],
+              label:    ["Lexend"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

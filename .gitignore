@@ -1,0 +1,10 @@
+node_modules/
+venv/
+venv1/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+temp/
+temp_ml_repos/
+stitch_remix_of_genveda_healthcare_ui/

@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap');
+
+/* ══════════════════════════════════════════════════════════════════════════
+   LIGHT MODE  (default)
+   These map 1-to-1 to the Tailwind color names in index.html
+   ══════════════════════════════════════════════════════════════════════════ */
+:root {
+  /* Primary — teal */
+  --c-primary:                  #00796B;
+  --c-on-primary:               #ffffff;
+  --c-primary-container:        #b2dfdb;
+  --c-on-primary-container:     #002722;
+
+  /* Secondary */
+  --c-secondary:                #4a635f;
+  --c-on-secondary:             #ffffff;
+  --c-secondary-container:      #cce8e2;
+  --c-on-secondary-container:   #05201c;
+
+  /* Tertiary */
+  --c-tertiary:                 #4a635f;
+  --c-tertiary-container:       #cce8e2;
+  --c-tertiary-fixed:           #cce8e2;
+  --c-on-tertiary-container:    #05201c;
+
+  /* Error */
+  --c-error:                    #ba1a1a;
+  --c-on-error:                 #ffffff;
+  --c-error-container:          #ffdad6;
+  --c-on-error-container:       #93000a;
+
+  /* Background / Surface */
+  --c-background:               #f8fbf9;
+  --c-on-background:            #191c1b;
+  --c-surface:                  #f8fbf9;
+  --c-on-surface:               #191c1b;
+  --c-surface-variant:          #dbe5e1;
+  --c-on-surface-variant:       #3f4947;
+  --c-surface-container-lowest: #ffffff;
+  --c-surface-container-low:    #f2f5f3;
+  --c-surface-container:        #eceeed;
+  --c-surface-container-high:   #e7e9e8;
+  --c-surface-container-highest:#e1e3e2;
+
+  /* Outline */
+  --c-outline:                  #6f7977;
+  --c-outline-variant:          #bfc9c6;
+
+  /* Legacy vars used by old inline-style components */
+  --primary:          var(--c-primary);
+  --primary-light:    var(--c-primary-container);
+  --bg-color:         var(--c-background);
+  --card-bg:          var(--c-surface-container-lowest);
+  --bg-secondary:     var(--c-surface-container-low);
+  --border-color:     var(--c-outline-variant);
+  --text-main:        var(--c-on-surface);
+  --text-muted:       var(--c-on-surface-variant);
+  --danger:           var(--c-error);
+  --danger-light:     var(--c-error-container);
+  --success:          var(--c-primary);
+  --success-light:    var(--c-primary-container);
+  --shadow-sm:        0 1px 3px 0 rgba(0,0,0,0.06);
+  --shadow:           0 4px 12px -2px rgba(0,0,0,0.08);
+  --t:                0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   DARK MODE  — triggered by  data-theme="dark"  on <html>
+   Every Tailwind class using these colors will flip automatically
+   ══════════════════════════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  --c-primary:                  #5adbc6;
+  --c-on-primary:               #00201a;
+  --c-primary-container:        #1a3a36;
+  --c-on-primary-container:     #b2dfdb;
+
+  --c-secondary:                #9dc8c4;
+  --c-on-secondary:             #003733;
+  --c-secondary-container:      #1e3432;
+  --c-on-secondary-container:   #b0ccc6;
+
+  --c-tertiary:                 #9dc8c4;
+  --c-tertiary-container:       #1e3432;
+  --c-tertiary-fixed:           #264240;
+  --c-on-tertiary-container:    #b0ccc6;
+
+  --c-error:                    #ff897d;
+  --c-on-error:                 #690005;
+  --c-error-container:          #500004;
+  --c-on-error-container:       #ffdad6;
+
+  --c-background:               #0d1412;
+  --c-on-background:            #dde4e2;
+  --c-surface:                  #0d1412;
+  --c-on-surface:               #dde4e2;
+  --c-surface-variant:          #3f4947;
+  --c-on-surface-variant:       #bfc9c6;
+  --c-surface-container-lowest: #080f0e;
+  --c-surface-container-low:    #161d1c;
+  --c-surface-container:        #1a2120;
+  --c-surface-container-high:   #242c2b;
+  --c-surface-container-highest:#2f3736;
+
+  --c-outline:                  #899390;
+  --c-outline-variant:          #3f4947;
+
+  /* Legacy vars */
+  --shadow-sm:  0 1px 3px 0 rgba(0,0,0,0.4);
+  --shadow:     0 4px 12px -2px rgba(0,0,0,0.6);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   GLOBAL — smooth dark/light transitions on EVERY element
+   ══════════════════════════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  transition:
+    background-color 0.3s ease,
+    color            0.3s ease,
+    border-color     0.3s ease,
+    box-shadow       0.3s ease,
+    fill             0.3s ease;
+}
+
+html, body {
+  min-height: 100%;
+  background-color: var(--c-background);
+}
+
+body {
+  margin: 0;
+  font-family: 'Lexend', sans-serif;
+  color: var(--c-on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: var(--c-on-surface);
+  font-family: 'Lexend', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+p { margin: 0; }
+
+button, input, select, textarea {
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.9375rem;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--c-outline-variant); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--c-outline); }
+
+/* ── Animations ── */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+@keyframes scan {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(320px); }
+  100% { transform: translateY(0); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50%       { transform: translateY(-5px); opacity: 1; }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.fade-in { animation: fadeSlideIn 0.35s ease both; }
