@@ -16,7 +16,7 @@
 
 ## 📖 Overview
 
-**GenVeda Clinical Intelligence** is a cutting-edge, full-stack medical triage and AI diagnostics platform designed specifically for rural clinics and multi-tier healthcare environments. 
+**GenVeda Clinical Intelligence** is a cutting-edge, full-stack medical triage and AI diagnostics platform designed specifically for rural clinics and multi-tier healthcare environments..
 
 By combining real-time edge AI skin lesion analysis, Multilingual Retrieval-Augmented Generation (RAG), and a strictly sandboxed multi-role architecture, GenVeda bridges the gap between resource-constrained primary care centers and specialized dermatologists. 
 
